@@ -3,7 +3,7 @@ name: Deploy To-Do App
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
