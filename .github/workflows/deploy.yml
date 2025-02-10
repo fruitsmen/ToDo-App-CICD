@@ -26,7 +26,7 @@ jobs:
       - name: Deploy application
         run: |
           cd ~/todoapp
-          git pull origin main
+          git pull origin master
           pip install -r requirements.txt
           sudo systemctl restart nginx
           nohup python3 app.py > app.log 2>&1 &
