@@ -9,7 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-22.04
     defaults:
-      run:
+      run: |
+        mkdir ~/todolist
         working-directory: ~/todolist
     steps:
       - name: Checkout repository
