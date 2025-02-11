@@ -8,9 +8,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: ~/todolist
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
@@ -29,8 +32,8 @@ jobs:
           sudo -u postgres psql -c "CREATE USER todouser WITH PASSWORD 'password';"
           sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE todolist TO todouser;"
 
-      - name: Create dir todolist
-        run: mkdir ~/todolist
+      # - name: Create dir todolist
+      #   run: mkdir ~/todolist
 
       # - name: Get SSH  
       #   uses: mxschmitt/action-tmate@v3
