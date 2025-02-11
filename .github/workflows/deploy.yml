@@ -51,14 +51,7 @@ jobs:
           sudo systemctl restart nginx
 
       - name: Start app
-        run: |
-          # sudo su
-          # mkdir ~/todoapp
-          # cd ~/todoapp
-          # git pull origin master
-          # pip install -r requirements.txt
-          # sudo systemctl restart nginx
-           sudo nohup python3 app.py > app.log 2>&1 &
+        run: sudo nohup python3 app.py > app.log 2>&1 &
 
       - name: Get SSH  
         uses: mxschmitt/action-tmate@v3
