@@ -38,8 +38,8 @@ jobs:
       - name: Install python requiriments
         run: sudo pip install -r requirements.txt
 
-      # - name: Get SSH  
-      #   uses: mxschmitt/action-tmate@v3
+      - name: Get SSH  
+        uses: mxschmitt/action-tmate@v3
 
       - name: Configure nginx and init changes
         run: |
@@ -57,6 +57,6 @@ jobs:
           # sudo systemctl restart nginx
            sudo nohup python3 app.py > app.log 2>&1 &
 
-      - name: Get SSH  
-        uses: mxschmitt/action-tmate@v3
+      # - name: Get SSH  
+      #   uses: mxschmitt/action-tmate@v3
       
