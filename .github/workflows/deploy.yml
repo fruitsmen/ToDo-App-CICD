@@ -34,13 +34,13 @@ jobs:
 
       - name: Deploy application
         run: |
-          sudo su
-          mkdir ~/todoapp
-          cd ~/todoapp
-          # git pull origin master
-          # pip install -r requirements.txt
-          # sudo systemctl restart nginx
-          # nohup python3 app.py > app.log 2>&1 &
+          # sudo su
+          # mkdir ~/todoapp
+          # cd ~/todoapp
+           git pull origin master
+           pip install -r requirements.txt
+           sudo systemctl restart nginx
+           nohup python3 app.py > app.log 2>&1 &
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
