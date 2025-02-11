@@ -39,7 +39,7 @@ jobs:
         uses: mxschmitt/action-tmate@v3
 
       - name: Install python requiriments
-        run: sudo pip install -r requirement.txt
+        run: sudo pip install -r requirements.txt
 
       - name: Configure nginx and init changes
         run: |
