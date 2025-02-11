@@ -32,7 +32,7 @@ jobs:
       - name: Create dir todolist
         run: mkdir ~/todolist
 
-         - name: Get SSH  
+      - name: Get SSH  
         uses: mxschmitt/action-tmate@v3
 
       - name: Pull files from git
