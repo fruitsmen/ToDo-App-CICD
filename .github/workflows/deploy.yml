@@ -33,7 +33,7 @@ jobs:
         run: mkdir ~/todolist && cd ~/todolist
 
       - name: Pull files from git
-        run: sudo git pull origin master
+        run: pwd && sudo git pull origin master
 
       - name: Install python requiriments
         run: sudo pip install -r requirements.txt
