@@ -32,13 +32,12 @@ jobs:
       - name: Create dir todolist
         run: mkdir ~/todolist
 
-      - name: Get SSH  
-        uses: mxschmitt/action-tmate@v3
+      # - name: Get SSH  
+      #   uses: mxschmitt/action-tmate@v3
 
       - name: Pull files from git
-        run: |
-          cd ~/todolist/ 
-          sudo git pull origin master
+        run: sudo git pull origin master
+        working-directory: ~/todolist/ 
 
       - name: Install python requiriments
         run: |
