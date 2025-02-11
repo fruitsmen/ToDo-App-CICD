@@ -34,7 +34,7 @@ jobs:
 
       - name: Deploy application
         run: |
-          cd ~/todoapp
+          mkdir todoapp && cd ~/todoapp
           git pull origin master
           pip install -r requirements.txt
           sudo systemctl restart nginx
