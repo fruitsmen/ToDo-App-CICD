@@ -32,6 +32,9 @@ jobs:
       - name: Create dir todolist
         run: mkdir ~/todolist
 
+         - name: Get SSH  
+        uses: mxschmitt/action-tmate@v3
+
       - name: Pull files from git
         run: |
           cd ~/todolist/ 
@@ -41,9 +44,6 @@ jobs:
         run: |
           cd ~/todolist/  
           pip install -r requirements.txt
-
-      - name: Get SSH  
-        uses: mxschmitt/action-tmate@v3
 
       - name: Configure nginx and init changes
         run: |
