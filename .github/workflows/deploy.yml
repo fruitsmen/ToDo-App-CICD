@@ -35,8 +35,8 @@ jobs:
       - name: Pull files from git
         run: sudo git pull origin master
 
-      - name: Get SSH  
-        uses: mxschmitt/action-tmate@v3
+      # - name: Get SSH  
+      #   uses: mxschmitt/action-tmate@v3
 
       - name: Install python requiriments
         run: sudo pip install -r requirements.txt
