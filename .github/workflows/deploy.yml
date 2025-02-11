@@ -30,13 +30,17 @@ jobs:
           sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE todolist TO todouser;"
 
       - name: Create dir todolist
-        run: mkdir ~/todolist && cd ~/todolist
+        run: mkdir ~/todolist
 
       - name: Pull files from git
-        run: cd ~/todolist/ && sudo git pull origin master
+        run: |
+          cd ~/todolist/ 
+          sudo git pull origin master
 
       - name: Install python requiriments
-        run: cd ~/todolist/ && pip install -r requirements.txt
+        run: |
+          cd ~/todolist/  
+          pip install -r requirements.txt
 
       - name: Get SSH  
         uses: mxschmitt/action-tmate@v3
