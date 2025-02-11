@@ -32,15 +32,27 @@ jobs:
           sudo -u postgres psql -c "CREATE USER todouser WITH PASSWORD 'password';"
           sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE todolist TO todouser;"
 
-      - name: Deploy application
+      - name: Pull files from git
+          git pull origin master
+
+      - name: Install python requiriments
+          pip install -r requirement.txt
+
+      - name: Configure nginx and init changes
+        run: |
+          sudo cp ~/config/nginx/todoapp /etc/nginx/sites-enabled/
+          # sudo ln -s /etc/nginx/sites-available/todoapp /etc/nginx/sites-enabled/
+          sudo systemctl restart nginx
+
+      - name: Start app
         run: |
           # sudo su
           # mkdir ~/todoapp
           # cd ~/todoapp
-           git pull origin master
-           pip install -r requirements.txt
-           sudo systemctl restart nginx
+          # git pull origin master
+          # pip install -r requirements.txt
+          # sudo systemctl restart nginx
            nohup python3 app.py > app.log 2>&1 &
 
-      - name: Setup tmate session
+      - name: Get SSH  
         uses: mxschmitt/action-tmate@v3
