@@ -16,7 +16,10 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y python3 python3-pip postgresql postgresql-contrib nginx
-
+     
+      - name: Pause for init postgresql instance and check postgresql instance
+        run:  sleep 10 && pg_lsclusters
+      
       - name: Set up PostgreSQL
         run: |
           sudo -u postgres psql -c "CREATE DATABASE todolist;"
