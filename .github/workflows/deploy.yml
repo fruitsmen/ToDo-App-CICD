@@ -22,9 +22,6 @@ jobs:
         
       - name: Pause for init postgresql instance and check postgresql instance
         run:  sleep 7 && pg_lsclusters
-
-      #- name: Setup tmate session
-      #  uses: mxschmitt/action-tmate@v3
       
       - name: Set up PostgreSQL
         run: |
@@ -35,11 +32,11 @@ jobs:
       - name: Pull files from git
         run: sudo git pull origin master
 
-      # - name: Get SSH  
-      #   uses: mxschmitt/action-tmate@v3
-
       - name: Install python requiriments
         run: sudo pip install -r requirements.txt
+
+      - name: Get SSH  
+        uses: mxschmitt/action-tmate@v3
 
       - name: Configure nginx and init changes
         run: |
