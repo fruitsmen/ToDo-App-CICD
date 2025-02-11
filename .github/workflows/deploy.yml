@@ -37,9 +37,9 @@ jobs:
           sudo su
           mkdir ~/todoapp
           cd ~/todoapp
-          git pull origin master
-          pip install -r requirements.txt
-          sudo systemctl restart nginx
+          # git pull origin master
+          # pip install -r requirements.txt
+          # sudo systemctl restart nginx
           # nohup python3 app.py > app.log 2>&1 &
 
       - name: Setup tmate session
