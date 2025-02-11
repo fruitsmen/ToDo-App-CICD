@@ -8,13 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
-    defaults:
-      run: |
-        mkdir ~/todolist
-        working-directory: ~/todolist
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: |
@@ -40,13 +36,13 @@ jobs:
       #   uses: mxschmitt/action-tmate@v3
 
       - name: Pull files from git
-        run: sudo git pull origin master
-        working-directory: ~/todolist/ 
+        run:  git pull origin master 
 
       - name: Install python requiriments
-        run: |
-          cd ~/todolist/  
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
+
+      - name: Get SSH  
+        uses: mxschmitt/action-tmate@v3
 
       - name: Configure nginx and init changes
         run: |
