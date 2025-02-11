@@ -16,12 +16,15 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y python3 python3-pip postgresql postgresql-contrib nginx
-     
-      - name: Pause for init postgresql instance and check postgresql instance
-        run:  sleep 10 && pg_lsclusters
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - name: Start postgresql instance
+        run:  sudo systemctl start postrgesql  
+        
+      - name: Pause for init postgresql instance and check postgresql instance
+        run:  sleep 7 && pg_lsclusters
+
+      #- name: Setup tmate session
+      #  uses: mxschmitt/action-tmate@v3
       
       - name: Set up PostgreSQL
         run: |
