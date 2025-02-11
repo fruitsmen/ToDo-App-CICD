@@ -19,6 +19,9 @@ jobs:
      
       - name: Pause for init postgresql instance and check postgresql instance
         run:  sleep 10 && pg_lsclusters
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       
       - name: Set up PostgreSQL
         run: |
