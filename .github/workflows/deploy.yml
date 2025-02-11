@@ -33,10 +33,10 @@ jobs:
           sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE todolist TO todouser;"
 
       - name: Pull files from git
-        run: git pull origin master
+        run: sudo git pull origin master
 
       - name: Install python requiriments
-        run: pip install -r requirement.txt
+        run: sudo pip install -r requirement.txt
 
       - name: Configure nginx and init changes
         run: |
@@ -52,7 +52,7 @@ jobs:
           # git pull origin master
           # pip install -r requirements.txt
           # sudo systemctl restart nginx
-           nohup python3 app.py > app.log 2>&1 &
+           sudo nohup python3 app.py > app.log 2>&1 &
 
       - name: Get SSH  
         uses: mxschmitt/action-tmate@v3
