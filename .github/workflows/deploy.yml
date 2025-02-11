@@ -18,7 +18,7 @@ jobs:
           sudo apt install -y python3 python3-pip postgresql postgresql-contrib nginx
 
       - name: Start postgresql instance
-        run:  sudo systemctl start postrgesql  
+        run:  sudo systemctl start postgresql  
         
       - name: Pause for init postgresql instance and check postgresql instance
         run:  sleep 7 && pg_lsclusters
