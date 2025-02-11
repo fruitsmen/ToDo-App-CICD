@@ -50,8 +50,11 @@ jobs:
           # sudo ln -s /etc/nginx/sites-available/todoapp /etc/nginx/sites-enabled/
           sudo systemctl restart nginx
 
+      # - name: Start app
+      #   run: sudo nohup python3 app.py > app.log 2>&1 &
+      
       - name: Start app
-        run: sudo nohup python3 app.py > app.log 2>&1 &
+        run: python3 app.py &
 
       - name: Get SSH  
         uses: mxschmitt/action-tmate@v3
