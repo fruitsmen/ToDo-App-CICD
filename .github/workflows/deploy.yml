@@ -43,8 +43,11 @@ jobs:
       - name: Start app
         run: python3 app.py &
 
-      - name: Check work (html)
-        run: curl localhost:80 
+      - name: Check throw serveo
+        run: ssh -R 80:localhost:80 serveo.net
+
+      # - name: Check work (html)
+      #   run: curl localhost:80 
 
       # - name: Get SSH  
       #   uses: mxschmitt/action-tmate@v3
